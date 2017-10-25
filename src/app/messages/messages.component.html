@@ -1,5 +1,21 @@
-<div *ngFor="let message of messages">
-  {{message.text}}
+<div class="container">
+
+
+  <form>
+    <div class="form-group">
+      <label for="message">
+        <h2>¿Qué te gustaría compartir?</h2>
+      </label>
+      <input [(ngModel)]="message" name="message" id="message" class="form-control" placeholder="Mensaje"/>
+    </div>
+    <button (click)="sendMessage()" class="btn btn-primary">Send</button>
+  </form>
+
+  <div class="b-messages" *ngIf="messages.length > 0">
+    <h2>Mensajes</h2>
+    <div *ngFor="let message of messages" class="alert alert-info">
+      {{message.text}}
+    </div>
+  </div>
+
 </div>
-<input [(ngModel)]="message"/>
-<button (click)="sendMessage()">Send</button>
